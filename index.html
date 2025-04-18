@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zaprojektuj Swój Sweter Urodzinowy</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Zaprojektuj Swój Wymarzony Sweter</h1>
+            <p class="subtitle">Stwórz sweter, który zrobię specjalnie dla Ciebie na urodziny! ✨</p>
+        </header>
+
+        <div class="main-content">
+            <div class="preview-container">
+                <div class="sweater-preview">
+                    <div class="sweater-image" id="sweaterImage">
+                        <div class="sweater-body" id="sweaterBody"></div>
+                        <div class="sweater-sleeves" id="sweaterSleeves"></div>
+                        <div class="sweater-neck" id="sweaterNeck"></div>
+                        <div class="sweater-bottom" id="sweaterBottom"></div>
+                    </div>
+                    <div id="miniSweater" class="mini-sweater" style="display: none;">
+                        <div class="mini-sweater-body"></div>
+                        <div class="mini-sweater-sleeves"></div>
+                        <div class="mini-sweater-neck"></div>
+                        <div class="mini-sweater-bottom"></div>
+                    </div>
+                    <div id="easterEgg" class="easter-egg"></div>
+                </div>
+                <div class="inspiration-links">
+                    <p>Szukasz inspiracji? Sprawdź te strony:</p>
+                    <a href="https://petiteknit.com/" target="_blank">PetiteKnit</a> |
+                    <a href="https://www.myfavouritethings-knitwear.com/" target="_blank">My Favourite Things Knitwear</a>
+                </div>
+            </div>
+
+            <div class="options-container">
+                <form id="sweaterForm">
+                    <div class="option-group">
+                        <h2>Rodzaj</h2>
+                        <div class="radio-options">
+                            <label>
+                                <input type="radio" name="type" value="sweater" checked>
+                                <span>Sweter</span>
+                            </label>
+                            <label>
+                                <input type="radio" name="type" value="cardigan">
+                                <span>Kardigan</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="option-group">
+                        <h2>Rękawy</h2>
+                        <div class="radio-options">
+                            <label>
+                                <input type="radio" name="sleeves" value="long" checked>
+                                <span>Długie</span>
+                            </label>
+                            <label>
+                                <input type="radio" name="sleeves" value="short">
+                                <span>Krótkie</span>
+                            </label>
+                            <label>
+                                <input type="radio" name="sleeves" value="three-quarter">
+                                <span>3/4</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="option-group">
+                        <h2>Długość</h2>
+                        <div class="radio-options">
+                            <label>
+                                <input type="radio" name="length" value="regular" checked>
+                                <span>Regularna</span>
+                            </label>
+                            <label>
+                                <input type="radio" name="length" value="long">
+                                <span>Długa</span>
+                            </label>
+                            <label>
+                                <input type="radio" name="length" value="crop">
+                                <span>Krótka (crop)</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="option-group">
+                        <h2>Wykończenie szyi</h2>
+                        <div class="radio-options">
+                            <label>
+                                <input type="radio" name="neckline" value="crew" checked>
+                                <span>Okrągłe</span>
+                            </label>
+                            <label>
+                                <input type="radio" name="neckline" value="v-neck">
+                                <span>V-neck</span>
+                            </label>
+                            <label>
+                                <input type="radio" name="neckline" value="turtleneck">
+                                <span>Golf</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="option-group">
+                        <h2>Kolor główny</h2>
+                        <div class="color-options">
+                            <label class="color-option">
+                                <input type="radio" name="mainColor" value="#2E4053" checked>
+                                <span class="color-circle" style="background-color: #2E4053;"></span>
+                                <span class="color-name">Navy</span>
+                            </label>
+                            <label class="color-option">
+                                <input type="radio" name="mainColor" value="#7D3C98">
+                                <span class="color-circle" style="background-color: #7D3C98;"></span>
+                                <span class="color-name">Lavender</span>
+                            </label>
+                            <label class="color-option">
+                                <input type="radio" name="mainColor" value="#A04000">
+                                <span class="color-circle" style="background-color: #A04000;"></span>
+                                <span class="color-name">Rust</span>
+                            </label>
+                            <label class="color-option">
+                                <input type="radio" name="mainColor" value="#145A32">
+                                <span class="color-circle" style="background-color: #145A32;"></span>
+                                <span class="color-name">Forest</span>
+                            </label>
+                            <label class="color-option">
+                                <input type="radio" name="mainColor" value="#B03A2E">
+                                <span class="color-circle" style="background-color: #B03A2E;"></span>
+                                <span class="color-name">Red</span>
+                            </label>
+                            <label class="color-option">
+                                <input type="radio" name="mainColor" value="#F1C40F">
+                                <span class="color-circle" style="background-color: #F1C40F;"></span>
+                                <span class="color-name">Mustard</span>
+                            </label>
+                            <label class="color-option">
+                                <input type="radio" name="mainColor" value="#BDC3C7">
+                                <span class="color-circle" style="background-color: #BDC3C7;"></span>
+                                <span class="color-name">Light Grey</span>
+                            </label>
+                            <label class="color-option">
+                                <input type="radio" name="mainColor" value="#ECF0F1">
+                                <span class="color-circle" style="background-color: #ECF0F1;"></span>
+                                <span class="color-name">Cream</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="option-group">
+                        <h2>Kolor wykończenia</h2>
+                        <div class="color-options">
+                            <label class="color-option">
+                                <input type="radio" name="accentColor" value="same" checked>
+                                <span class="color-circle" style="background: linear-gradient(45deg, #2E4053, #2E4053);"></span>
+                                <span class="color-name">Taki sam</span>
+                            </label>
+                            <label class="color-option">
+                                <input type="radio" name="accentColor" value="#2E4053">
+                                <span class="color-circle" style="background-color: #2E4053;"></span>
+                                <span class="color-name">Navy</span>
+                            </label>
+                            <label class="color-option">
+                                <input type="radio" name="accentColor" value="#7D3C98">
+                                <span class="color-circle" style="background-color: #7D3C98;"></span>
+                                <span class="color-name">Lavender</span>
+                            </label>
+                            <label class="color-option">
+                                <input type="radio" name="accentColor" value="#A04000">
+                                <span class="color-circle" style="background-color: #A04000;"></span>
+                                <span class="color-name">Rust</span>
+                            </label>
+                            <label class="color-option">
+                                <input type="radio" name="accentColor" value="#145A32">
+                                <span class="color-circle" style="background-color: #145A32;"></span>
+                                <span class="color-name">Forest</span>
+                            </label>
+                            <label class="color-option">
+                                <input type="radio" name="accentColor" value="#B03A2E">
+                                <span class="color-circle" style="background-color: #B03A2E;"></span>
+                                <span class="color-name">Red</span>
+                            </label>
+                            <label class="color-option">
+                                <input type="radio" name="accentColor" value="#F1C40F">
+                                <span class="color-circle" style="background-color: #F1C40F;"></span>
+                                <span class="color-name">Mustard</span>
+                            </label>
+                            <label class="color-option">
+                                <input type="radio" name="accentColor" value="#BDC3C7">
+                                <span class="color-circle" style="background-color: #BDC3C7;"></span>
+                                <span class="color-name">Light Grey</span>
+                            </label>
+                            <label class="color-option">
+                                <input type="radio" name="accentColor" value="#ECF0F1">
+                                <span class="color-circle" style="background-color: #ECF0F1;"></span>
+                                <span class="color-name">Cream</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="option-group">
+                        <h2>Dodatki</h2>
+                        <div class="checkbox-options">
+                            <label>
+                                <input type="checkbox" name="extras" value="pockets">
+                                <span>Kieszenie</span>
+                            </label>
+                            <label>
+                                <input type="checkbox" name="extras" value="buttons">
+                                <span>Guziki</span>
+                            </label>
+                            <label>
+                                <input type="checkbox" name="extras" value="pattern">
+                                <span>Delikatny wzór</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="option-group mini-sweater-option">
+                        <h2>Pasujący sweterek dla Mańki</h2>
+                        <div class="checkbox-options">
+                            <label>
+                                <input type="checkbox" name="miniSweater" id="miniSweaterCheckbox">
+                                <span>Tak, poproszę też pasujący sweter dla córeczki</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="option-group">
+                        <h2>Personalizacja</h2>
+                        <div class="text-options">
+                            <label for="specialRequests">Dodatkowe uwagi lub życzenia:</label>
+                            <textarea id="specialRequests" name="specialRequests" rows="3" placeholder="Np. luźniejszy krój, określony splot, itp."></textarea>
+                        </div>
+                    </div>
+
+                    <div class="option-group">
+                        <h2>Twoje dane</h2>
+                        <div class="text-options">
+                            <label for="name">Imię:</label>
+                            <input type="text" id="name" name="name" required>
+                            
+                            <label for="email">Email:</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                    </div>
+
+                    <div class="submit-container">
+                        <button type="submit" id="submitDesign" class="submit-button">Zapisz mój projekt</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <footer>
+            <p>Z miłością na Twoje urodziny ❤️</p>
+            <p class="secret-message">Kliknij 13 razy w dowolne miejsce i podaj hasło, aby zobaczyć niespodziankę</p>
+            <p class="secret-hint">Podpowiedź do hasła: Jeden z utworów Taylor Swift i jednocześnie rodzaj swetra</p>
+        </footer>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
