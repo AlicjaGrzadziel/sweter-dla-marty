@@ -1,7 +1,5 @@
-
 document.addEventListener("DOMContentLoaded", function () {
     const form = document.getElementById("sweaterForm");
-    const sweaterImage = document.getElementById("sweaterImage");
     const sweaterBody = document.getElementById("sweaterBody");
     const sweaterSleeves = document.getElementById("sweaterSleeves");
     const sweaterNeck = document.getElementById("sweaterNeck");
@@ -57,12 +55,12 @@ document.addEventListener("DOMContentLoaded", function () {
         nameOnSweater.textContent = nameCheckbox.checked ? nameInput.value : "";
     }
 
-    // Easter Egg
+    // Easter Egg - 13 clicks
     let clickCount = 0;
     document.body.addEventListener("click", () => {
         clickCount++;
         if (clickCount === 13) {
-            const password = prompt("Podaj hasło:");
+            const password = prompt("Podaj hasÅo:");
             if (password && password.toLowerCase().includes("cardigan")) {
                 document.getElementById("easterEgg").style.display = "block";
             }
@@ -74,11 +72,50 @@ document.addEventListener("DOMContentLoaded", function () {
         document.getElementById("easterEgg").style.display = "none";
     });
 
-    // Size Guide Modal
+    // Size Guide
     document.querySelector(".size-guide-btn").addEventListener("click", () => {
         document.querySelector(".size-guide-modal").style.display = "block";
     });
     document.querySelector(".close-size-guide").addEventListener("click", () => {
         document.querySelector(".size-guide-modal").style.display = "none";
     });
+
+    // Logo click easter egg
+    const logo = document.querySelector(".logo-image");
+    if (logo) {
+        logo.addEventListener("click", () => {
+            alert("JesteÅ magiczna, Alicjo!");
+        });
+    }
+
+    // Secret key combo (Ctrl + M)
+    document.addEventListener("keydown", (e) => {
+        if (e.ctrlKey && e.key === "m") {
+            alert("MaÅka mÃ³wi: Kocham sweterki!");
+        }
+    });
+
+    // Secret link easter egg
+    const secretLink = document.querySelector(".secret-link");
+    if (secretLink) {
+        secretLink.addEventListener("click", () => {
+            alert("ZnalazÅaÅ ukryty poziom!");
+        });
+    }
+});
+
+// Add mini Taylor Swift signature
+const miniTaylor = document.createElement("img");
+miniTaylor.src = "https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Taylor_Swift_signature.png/320px-Taylor_Swift_signature.png";
+miniTaylor.style.position = "fixed";
+miniTaylor.style.bottom = "5px";
+miniTaylor.style.left = "5px";
+miniTaylor.style.width = "100px";
+miniTaylor.style.opacity = "0.15";
+document.body.appendChild(miniTaylor);
+
+// Submission lyric
+document.getElementById("sweaterForm").addEventListener("submit", function (e) {
+    e.preventDefault();
+    alert("âI remember it all too wellâ... TwÃ³j projekt zostaÅ zapisany!");
 });
