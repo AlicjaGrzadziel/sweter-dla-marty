@@ -1,446 +1,196 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
 body {
     font-family: 'Manrope', sans-serif;
-    background-color: #f9f7f5;
+    background-color: #FAF9F6;
+    margin: 0;
+    padding: 0;
     color: #333;
-    line-height: 1.6;
 }
 
 .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
+    max-width: 1000px;
+    margin: auto;
+    padding: 2rem;
 }
 
 header {
     text-align: center;
-    margin-bottom: 40px;
-    padding: 20px;
-    border-bottom: 1px solid #eee;
-}
-
-h1 {
-    font-size: 2.5rem;
-    color: #333;
-    margin-bottom: 10px;
-    font-weight: 700;
+    margin-bottom: 2rem;
 }
 
 .subtitle {
-    font-size: 1.2rem;
+    font-style: italic;
     color: #666;
-    font-weight: 300;
 }
 
 .main-content {
     display: flex;
     flex-wrap: wrap;
-    gap: 30px;
+    gap: 2rem;
 }
 
 .preview-container {
-    flex: 1;
-    min-width: 300px;
-    position: relative;
-}
-
-.sweater-preview {
-    background-color: #fff;
-    border-radius: 10px;
-    padding: 20px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    height: 400px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 20px;
-    position: relative;
-    overflow: hidden;
-}
-
-.sweater-image {
-    width: 240px;
-    height: 300px;
-    position: relative;
-}
-
-.sweater-body {
-    width: 100%;
-    height: 70%;
-    background-color: #2E4053;
-    border-radius: 15px;
-    position: absolute;
-    top: 30%;
-    transition: all 0.3s ease;
-}
-
-.sweater-sleeves {
-    width: 30px;
-    height: 150px;
-    background-color: #2E4053;
-    border-radius: 10px;
-    position: absolute;
-    top: 30%;
-    transition: all 0.3s ease;
-}
-
-.sweater-sleeves:first-of-type {
-    left: -35px;
-}
-
-.sweater-sleeves:last-of-type {
-    right: -35px;
-}
-
-.sweater-neck {
-    width: 80px;
-    height: 30px;
-    background-color: #2E4053;
-    border-radius: 10px 10px 0 0;
-    position: absolute;
-    top: 15%;
-    left: 50%;
-    transform: translateX(-50%);
-    transition: all 0.3s ease;
-}
-
-.sweater-bottom {
-    width: 100%;
-    height: 20px;
-    background-color: #2E4053;
-    border-radius: 0 0 15px 15px;
-    position: absolute;
-    bottom: 0;
-    transition: all 0.3s ease;
-}
-
-/* Mini sweater styles */
-.mini-sweater {
-    width: 100px;
-    height: 120px;
-    position: absolute;
-    bottom: 20px;
-    right: 20px;
-    transition: all 0.3s ease;
-}
-
-.mini-sweater-body {
-    width: 100%;
-    height: 70%;
-    background-color: #2E4053;
-    border-radius: 10px;
-    position: absolute;
-    top: 30%;
-}
-
-.mini-sweater-sleeves {
-    width: 15px;
-    height: 60px;
-    background-color: #2E4053;
-    border-radius: 5px;
-    position: absolute;
-    top: 30%;
-}
-
-.mini-sweater-sleeves:first-of-type {
-    left: -18px;
-}
-
-.mini-sweater-sleeves:last-of-type {
-    right: -18px;
-}
-
-.mini-sweater-neck {
-    width: 40px;
-    height: 15px;
-    background-color: #2E4053;
-    border-radius: 5px 5px 0 0;
-    position: absolute;
-    top: 15%;
-    left: 50%;
-    transform: translateX(-50%);
-}
-
-.mini-sweater-bottom {
-    width: 100%;
-    height: 10px;
-    background-color: #2E4053;
-    border-radius: 0 0 10px 10px;
-    position: absolute;
-    bottom: 0;
-}
-
-.easter-egg {
-    position: absolute;
-    width: 80px;
-    height: 80px;
-    background-image: url('https://i.imgur.com/n7S2P5D.png');
-    background-size: contain;
-    background-repeat: no-repeat;
-    opacity: 0;
-    transition: opacity 0.5s ease-in-out;
-    pointer-events: none;
-}
-
-.inspiration-links {
-    text-align: center;
-    padding: 10px;
-    background-color: #f4f1eb;
-    border-radius: 5px;
-}
-
-.inspiration-links a {
-    color: #795548;
-    text-decoration: none;
-    font-weight: 500;
-    transition: color 0.2s;
-}
-
-.inspiration-links a:hover {
-    color: #D32F2F;
-    text-decoration: underline;
+    flex: 1 1 40%;
 }
 
 .options-container {
-    flex: 1;
-    min-width: 300px;
+    flex: 1 1 55%;
+}
+
+.sweater-preview {
+    position: relative;
+    height: 300px;
+    margin-bottom: 1rem;
+    border: 2px dashed #ccc;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.sweater-body, .sweater-sleeves, .sweater-neck, .sweater-bottom {
+    width: 80px;
+    height: 100px;
+    background-color: #2E4053;
+    border-radius: 20px;
+    margin: 5px;
+}
+
+.sweater-sleeves {
+    width: 120px;
+    height: 30px;
+}
+
+.sweater-neck, .sweater-bottom {
+    width: 60px;
+    height: 20px;
+}
+
+.mini-sweater {
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.mini-sweater-body,
+.mini-sweater-sleeves,
+.mini-sweater-neck,
+.mini-sweater-bottom {
+    background-color: #EC407A;
+    border-radius: 10px;
+    margin: 2px;
+}
+
+.mini-sweater-body {
+    width: 40px;
+    height: 50px;
+}
+
+.mini-sweater-sleeves {
+    width: 60px;
+    height: 15px;
+}
+
+.mini-sweater-neck,
+.mini-sweater-bottom {
+    width: 30px;
+    height: 10px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
 }
 
 .option-group {
-    margin-bottom: 25px;
-    background-color: #fff;
-    padding: 15px;
+    background: #fff;
+    padding: 1rem;
     border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-}
-
-.mini-sweater-option {
-    background-color: #fff3f9;
-    border: 1px dashed #d54c8f;
-}
-
-.option-group h2 {
-    font-size: 1.2rem;
-    margin-bottom: 15px;
-    color: #555;
-    border-bottom: 1px solid #eee;
-    padding-bottom: 8px;
-}
-
-.radio-options, .checkbox-options {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-}
-
-.radio-options label, .checkbox-options label {
-    display: flex;
-    align-items: center;
-    cursor: pointer;
-    padding: 8px 15px;
-    background-color: #f9f7f5;
-    border-radius: 20px;
-    transition: all 0.2s;
-}
-
-.radio-options label:hover, .checkbox-options label:hover {
-    background-color: #f0e9e1;
-}
-
-.radio-options input, .checkbox-options input {
-    margin-right: 8px;
+    box-shadow: 0 0 5px rgba(0,0,0,0.05);
 }
 
 .color-options {
     display: flex;
     flex-wrap: wrap;
-    gap: 10px;
+    gap: 1rem;
 }
 
-.color-option {
+.color-options label {
     display: flex;
-    flex-direction: column;
     align-items: center;
-    cursor: pointer;
+    gap: 0.5rem;
 }
 
-.color-circle {
-    width: 30px;
-    height: 30px;
+.color-options span {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
     border-radius: 50%;
-    margin-bottom: 5px;
-    border: 2px solid transparent;
-    transition: all 0.2s;
+    border: 1px solid #ccc;
 }
 
-.color-option input:checked + .color-circle {
-    border-color: #333;
-    transform: scale(1.1);
-}
-
-.color-name {
-    font-size: 0.8rem;
-    color: #777;
-}
-
-.text-options {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-.text-options label {
-    font-size: 0.9rem;
-    color: #555;
-}
-
-.text-options input, .text-options textarea {
-    padding: 8px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
+input[type="text"],
+input[type="email"],
+input[type="url"],
+textarea {
+    width: 100%;
+    padding: 0.5rem;
     font-family: inherit;
-    resize: vertical;
+    border: 1px solid #ccc;
+    border-radius: 4px;
 }
 
 .submit-container {
     text-align: center;
-    margin-top: 30px;
+    margin-top: 1rem;
 }
 
 .submit-button {
-    background-color: #D32F2F;
-    color: white;
+    background-color: #333;
+    color: #fff;
+    padding: 0.75rem 1.5rem;
     border: none;
-    padding: 12px 25px;
-    font-size: 1rem;
-    border-radius: 25px;
+    border-radius: 20px;
     cursor: pointer;
-    transition: all 0.3s;
-    font-weight: 500;
-    box-shadow: 0 4px 8px rgba(211, 47, 47, 0.2);
-}
-
-.submit-button:hover {
-    background-color: #B71C1C;
-    transform: translateY(-2px);
-    box-shadow: 0 6px 12px rgba(211, 47, 47, 0.25);
+    font-size: 1rem;
 }
 
 footer {
     text-align: center;
-    margin-top: 40px;
-    padding: 20px;
-    border-top: 1px solid #eee;
-    color: #777;
+    margin-top: 3rem;
+    font-size: 0.9rem;
+    color: #999;
 }
 
 .secret-message {
-    font-size: 0.7rem;
-    color: #f9f7f5;
-    margin-top: 10px;
-    transition: color 0.3s ease;
-}
-
-.secret-message:hover {
-    color: #ccc;
+    margin-top: 0.5rem;
+    font-style: italic;
 }
 
 .secret-hint {
-    font-size: 0.7rem;
-    color: #f9f7f5;
-    font-style: italic;
-    transition: color 0.3s ease;
+    font-size: 0.8rem;
+    color: #ccc;
 }
 
-.secret-hint:hover {
-    color: #d54c8f;
-}
-
-/* Taylor Swift Secret Button */
-.ts-secret {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    background-color: rgba(213, 76, 143, 0.9);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    box-shadow: 0 2px 8px rgba(213, 76, 143, 0.5);
-    z-index: 100;
-    opacity: 0;
-    transform: scale(0);
-    transition: all 0.3s ease;
-}
-
-.ts-secret.visible {
-    opacity: 1;
-    transform: scale(1);
-}
-
-.ts-secret span {
-    font-size: 1.5rem;
-}
-
-.ts-modal {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.8);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 200;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.3s ease;
-}
-
-.ts-modal.active {
-    opacity: 1;
-    pointer-events: auto;
-}
-
-.ts-modal-content {
-    background-color: white;
-    padding: 30px;
-    border-radius: 10px;
-    max-width: 80%;
-    text-align: center;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
-    position: relative;
-}
-
-.ts-modal-close {
+.easter-egg {
+    display: none;
     position: absolute;
-    top: 10px;
-    right: 10px;
-    font-size: 1.5rem;
-    cursor: pointer;
-    color: #777;
+    top: 20px;
+    left: 20px;
+    background-color: rgba(255, 255, 255, 0.95);
+    border: 2px solid #EC407A;
+    padding: 1rem;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    animation: fadeIn 1s ease forwards;
+    max-width: 250px;
+    font-size: 0.95rem;
+    z-index: 999;
 }
 
-/* Responsive adjustments */
-@media (max-width: 768px) {
-    .main-content {
-        flex-direction: column;
-    }
-    
-    .sweater-preview {
-        height: 350px;
-    }
-    
-    h1 {
-        font-size: 2rem;
-    }
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
 }
