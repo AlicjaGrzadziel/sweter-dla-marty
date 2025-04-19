@@ -1,767 +1,137 @@
-/* Zmienne globalne */
-:root {
-    --primary-color: #ff6b6b;
-    --secondary-color: #4ecdc4;
-    --dark-color: #292f36;
-    --light-color: #f7fff7;
-    --accent-color: #ff9f1c;
-    --border-radius: 10px;
-    --box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    --transition: all 0.3s ease-in-out;
-}
-
-/* Reset i podstawowe style */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
 
 body {
     font-family: 'Manrope', sans-serif;
-    background-color: #f9f7f7;
-    color: var(--dark-color);
-    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background: #fffaf0;
+    color: #333;
 }
 
 .container {
     max-width: 1200px;
-    margin: 0 auto;
+    margin: auto;
     padding: 20px;
 }
 
-/* Nagłówek */
-header {
+.inspiration-links {
     text-align: center;
-    margin-bottom: 30px;
-    padding: 20px 0;
-    border-bottom: 2px solid var(--primary-color);
-    position: relative;
+    margin-bottom: 20px;
 }
 
-header h1 {
-    font-size: 2.5rem;
-    margin-bottom: 10px;
-    color: var(--primary-color);
-    text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
-}
-
-.subtitle {
-    font-size: 1.2rem;
-    color: var(--dark-color);
-    font-weight: 300;
-}
-
-.theme-toggle {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    background: none;
+.inspiration-links a,
+.inspiration-links button {
+    margin: 0 10px;
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
     border: none;
-    font-size: 1.5rem;
+    background: none;
     cursor: pointer;
-    color: var(--dark-color);
-    transition: var(--transition);
 }
 
-.theme-toggle:hover {
-    transform: rotate(30deg);
-    color: var(--primary-color);
-}
-
-/* Główny układ */
 .main-content {
     display: flex;
     flex-wrap: wrap;
-    gap: 30px;
-    justify-content: space-between;
+    gap: 20px;
 }
 
-/* Kontener podglądu */
-.preview-container {
-    flex: 1;
-    min-width: 300px;
-    max-width: 500px;
-    position: relative;
+.preview-container, .options-container {
+    flex: 1 1 400px;
 }
 
 .sweater-preview {
-    background-color: white;
-    border-radius: var(--border-radius);
-    box-shadow: var(--box-shadow);
+    border: 1px solid #ddd;
     padding: 20px;
-    margin-bottom: 20px;
+    background: #fefefe;
     position: relative;
-    overflow: hidden;
-    aspect-ratio: 4/5;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: var(--transition);
+    min-height: 300px;
 }
 
-.sweater-preview:hover {
-    transform: scale(1.02);
-}
-
-/* Style swetra */
-.sweater-image {
-    width: 80%;
-    height: 80%;
-    position: relative;
-}
-
-.sweater-body {
-    position: absolute;
+.sweater-body, .sweater-sleeves, .sweater-neck, .sweater-bottom {
     width: 100%;
-    height: 70%;
-    bottom: 0;
-    border-radius: 15px 15px 0 0;
-    transition: var(--transition);
+    height: 50px;
+    margin-bottom: 5px;
 }
 
-.sweater-sleeves {
-    position: absolute;
-    width: 120%;
-    height: 20%;
-    bottom: 25%;
-    left: -10%;
-    transition: var(--transition);
+.pattern-overlay.stripes {
+    background: repeating-linear-gradient(45deg, transparent, transparent 5px, rgba(0,0,0,0.1) 5px, rgba(0,0,0,0.1) 10px);
 }
 
-.sweater-neck {
-    position: absolute;
-    width: 30%;
-    height: 15%;
-    top: 0;
-    left: 35%;
-    border-radius: 0 0 50% 50%;
-    transition: var(--transition);
+.pattern-overlay.dots {
+    background: radial-gradient(circle, rgba(0,0,0,0.1) 1px, transparent 2px);
+    background-size: 10px 10px;
 }
 
-.sweater-bottom {
-    position: absolute;
-    width: 100%;
-    height: 10%;
-    bottom: 0;
-    border-radius: 0 0 15px 15px;
-    transition: var(--transition);
+.pattern-overlay.zigzag {
+    background: linear-gradient(135deg, rgba(0,0,0,0.1) 25%, transparent 25%) -5px 0, 
+                linear-gradient(225deg, rgba(0,0,0,0.1) 25%, transparent 25%) -5px 0;
+    background-size: 10px 10px;
 }
 
-/* Wzory i nakładki */
-.pattern-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    opacity: 0.2;
-    background-size: 20px 20px;
-    mix-blend-mode: multiply;
-    pointer-events: none;
+.pattern-overlay.checker {
+    background: repeating-linear-gradient(0deg, #ccc 0px, #ccc 5px, #eee 5px, #eee 10px),
+                repeating-linear-gradient(90deg, #ccc 0px, #ccc 5px, #eee 5px, #eee 10px);
 }
 
-.sweater-decoration {
-    position: absolute;
-    top: 30%;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 50%;
-    height: 30%;
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 2rem;
-    color: #333;
+.pattern-overlay.hearts,
+.pattern-overlay.snowflakes {
+    content: '♥'; /* Placeholder for visuals */
 }
 
-/* Mini sweterek */
-.mini-sweater {
-    position: absolute;
-    width: 30%;
-    height: 30%;
-    right: 10px;
-    bottom: 30px;
-    transform: rotate(10deg);
-    transition: var(--transition);
-    z-index: 10;
-}
-
-.mini-sweater-body,
-.mini-sweater-sleeves,
-.mini-sweater-neck,
-.mini-sweater-bottom {
-    position: absolute;
-    transition: var(--transition);
-}
-
-.mini-sweater-body {
-    width: 100%;
-    height: 70%;
-    bottom: 0;
-    border-radius: 10px 10px 0 0;
-}
-
-.mini-sweater-sleeves {
-    width: 120%;
-    height: 20%;
-    bottom: 25%;
-    left: -10%;
-}
-
-.mini-sweater-neck {
-    width: 30%;
-    height: 15%;
-    top: 0;
-    left: 35%;
-    border-radius: 0 0 50% 50%;
-}
-
-.mini-sweater-bottom {
-    width: 100%;
-    height: 10%;
-    bottom: 0;
-    border-radius: 0 0 10px 10px;
-}
-
-/* Linki inspiracji */
-.inspiration-links {
-    background-color: white;
-    border-radius: var(--border-radius);
-    padding: 15px;
-    margin-bottom: 20px;
-    box-shadow: var(--box-shadow);
-    text-align: center;
-    transition: var(--transition);
-}
-
-.inspiration-links p {
-    margin-bottom: 10px;
-    font-weight: 500;
-}
-
-.inspiration-links a {
-    color: var(--primary-color);
-    text-decoration: none;
-    margin: 0 5px;
-    transition: var(--transition);
-}
-
-.inspiration-links a:hover {
-    color: var(--accent-color);
-    text-decoration: underline;
-}
-
-.size-guide-btn {
-    display: block;
-    margin: 15px auto 0;
-    padding: 8px 15px;
-    background-color: var(--secondary-color);
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: var(--transition);
-}
-
-.size-guide-btn:hover {
-    background-color: var(--primary-color);
-    transform: translateY(-2px);
-}
-
-/* Kontrolki podglądu */
-.preview-controls {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    margin: 15px 0;
-}
-
-.preview-btn {
-    background-color: var(--secondary-color);
-    color: white;
-    border: none;
-    border-radius: 5px;
-    padding: 8px 15px;
-    cursor: pointer;
-    transition: var(--transition);
-    display: flex;
-    align-items: center;
-}
-
-.preview-btn i {
-    margin-right: 5px;
-}
-
-.preview-btn:hover {
-    background-color: var(--primary-color);
-    transform: translateY(-2px);
-}
-
-.rotate-btn {
-    background-color: var(--accent-color);
-}
-
-/* Kontener opcji */
-.options-container {
-    flex: 1;
-    min-width: 300px;
-    max-width: 600px;
-}
-
-.option-group {
-    background-color: white;
-    border-radius: var(--border-radius);
-    padding: 20px;
-    margin-bottom: 20px;
-    box-shadow: var(--box-shadow);
-    transition: var(--transition);
-}
-
-.option-group:hover {
-    transform: translateY(-5px);
-}
-
-.option-group h2 {
-    font-size: 1.3rem;
-    margin-bottom: 15px;
-    color: var(--secondary-color);
-    border-bottom: 2px solid #f0f0f0;
-    padding-bottom: 10px;
-    display: flex;
-    align-items: center;
-}
-
-.option-group h2 i {
-    margin-right: 10px;
-}
-
-.option-group label {
-    display: inline-flex;
-    align-items: center;
-    margin-right: 15px;
-    margin-bottom: 10px;
-    cursor: pointer;
-    transition: var(--transition);
-}
-
-.option-group label:hover {
-    color: var(--primary-color);
-}
-
-.option-group input[type="radio"],
-.option-group input[type="checkbox"] {
-    margin-right: 8px;
-    accent-color: var(--secondary-color);
-}
-
-/* Opcje kolorów */
-.color-options {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-}
-
-.color-row {
+.radio-options, .color-row, .pattern-options, .decoration-options {
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
 }
 
-.color-row label {
+.radio-label, .color-label {
     display: flex;
     align-items: center;
-    min-width: 110px;
-    margin-right: 10px;
+    cursor: pointer;
 }
 
-.color-row span {
+.color-swatch {
+    width: 24px;
+    height: 24px;
     display: inline-block;
-    width: 25px;
-    height: 25px;
-    margin-right: 8px;
     border-radius: 50%;
-    border: 1px solid #ddd;
-    transition: var(--transition);
+    margin-right: 8px;
 }
 
-.color-row label:hover span {
-    transform: scale(1.2);
-    box-shadow: 0 0 5px rgba(0,0,0,0.2);
-}
-
-.custom-color {
-    display: flex;
-    align-items: center;
-    margin-top: 5px;
-}
-
-#customMainColor {
-    margin-left: 10px;
-    padding: 5px 10px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    width: 150px;
-}
-
-/* Opcje wzorów */
-.pattern-options {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 15px;
-    margin-top: 10px;
-}
-
-.pattern-option {
-    width: 60px;
-    height: 60px;
-    border: 2px solid #eee;
-    border-radius: 8px;
+.pattern-option, .decoration-option {
+    width: 40px;
+    height: 40px;
+    border: 2px solid transparent;
     cursor: pointer;
-    overflow: hidden;
-    transition: var(--transition);
-}
-
-.pattern-option:hover, .pattern-option.selected {
-    border-color: var(--primary-color);
-    transform: scale(1.1);
-}
-
-.pattern-option.none {
-    background-color: #fff;
-    position: relative;
-}
-
-.pattern-option.none::after {
-    content: "Brak";
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 12px;
-    color: #999;
-}
-
-.pattern-option.stripes {
-    background-image: repeating-linear-gradient(45deg, transparent, transparent 5px, rgba(0,0,0,0.1) 5px, rgba(0,0,0,0.1) 10px);
-}
-
-.pattern-option.dots {
-    background-image: radial-gradient(circle, rgba(0,0,0,0.1) 1px, transparent 1px);
-    background-size: 10px 10px;
-}
-
-.pattern-option.zigzag {
-    background-image: linear-gradient(135deg, rgba(0,0,0,0.1) 25%, transparent 25%), 
-                      linear-gradient(225deg, rgba(0,0,0,0.1) 25%, transparent 25%), 
-                      linear-gradient(315deg, rgba(0,0,0,0.1) 25%, transparent 25%), 
-                      linear-gradient(45deg, rgba(0,0,0,0.1) 25%, transparent 25%);
-    background-size: 10px 10px;
-}
-
-.pattern-option.checker {
-    background-image: linear-gradient(45deg, rgba(0,0,0,0.1) 25%, transparent 25%, transparent 75%, rgba(0,0,0,0.1) 75%, rgba(0,0,0,0.1)), 
-                      linear-gradient(45deg, rgba(0,0,0,0.1) 25%, transparent 25%, transparent 75%, rgba(0,0,0,0.1) 75%, rgba(0,0,0,0.1));
-    background-position: 0 0, 10px 10px;
-    background-size: 20px 20px;
-}
-
-.pattern-option.hearts {
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath d='M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z' fill='rgba(0,0,0,0.1)'/%3E%3C/svg%3E");
-    background-size: 20px 20px;
-}
-
-.pattern-option.snowflakes {
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath d='M22 11h-4.17l3.24-3.24-1.41-1.42L15 11h-2V9l4.66-4.66-1.42-1.41L13 6.17V2h-2v4.17L7.76 2.93 6.34 4.34 11 9v2H9L4.34 6.34 2.93 7.76 6.17 11H2v2h4.17l-3.24 3.24 1.41 1.42L9 13h2v2l-4.66 4.66 1.42 1.41L11 17.83V22h2v-4.17l3.24 3.24 1.42-1.41L13 15v-2h2l4.66 4.66 1.41-1.42L17.83 13H22z' fill='rgba(0,0,0,0.1)'/%3E%3C/svg%3E");
-    background-size: 20px 20px;
-}
-
-/* Opcje dekoracji */
-.decoration-options {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 15px;
-    margin-top: 10px;
-}
-
-.decoration-option {
-    width: 60px;
-    height: 60px;
-    border: 2px solid #eee;
-    border-radius: 8px;
-    cursor: pointer;
-    overflow: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 24px;
-    transition: var(--transition);
-}
-
-.decoration-option:hover, .decoration-option.selected {
-    border-color: var(--primary-color);
-    transform: scale(1.1);
-}
-
-/* Pola formularza */
-textarea, input[type="text"], input[type="email"], input[type="url"] {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 15px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    transition: var(--transition);
-}
-
-textarea:focus, input[type="text"]:focus, input[type="email"]:focus, input[type="url"]:focus {
-    border-color: var(--secondary-color);
-    outline: none;
-    box-shadow: 0 0 5px rgba(78, 205, 196, 0.3);
-}
-
-/* Przycisk wysyłania */
-.submit-container {
     text-align: center;
-    margin-top: 30px;
+    line-height: 40px;
+    font-size: 18px;
 }
 
-.submit-button {
-    padding: 12px 30px;
-    background-color: var(--primary-color);
-    color: white;
-    border: none;
-    border-radius: 30px;
-    font-size: 1.1rem;
-    cursor: pointer;
-    transition: var(--transition);
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+.pattern-option.selected,
+.decoration-option.selected {
+    border-color: #333;
 }
 
-.submit-button:hover {
-    background-color: var(--accent-color);
-    transform: translateY(-3px);
-    box-shadow: 0 6px 8px rgba(0,0,0,0.15);
+.name-option {
+    margin-top: 10px;
 }
 
-/* Nazwa na swetrze */
-#nameOnSweater {
-    font-family: 'Dancing Script', cursive;
-    font-size: 2rem;
-    position: absolute;
-    top: 40%;
+.size-guide-modal, #easterEgg {
+    display: none;
+    position: fixed;
+    top: 10%;
     left: 50%;
-    transform: translate(-50%, -50%);
-    color: #333;
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
-    pointer-events: none;
-    transition: var(--transition);
-    opacity: 0;
+    transform: translateX(-50%);
+    background: white;
+    border: 2px solid #aaa;
+    padding: 20px;
+    z-index: 1000;
 }
 
-/* Stopka */
 footer {
+    margin-top: 40px;
     text-align: center;
-    margin-top: 50px;
-    padding: 20px 0;
-    border-top: 2px solid var(--primary-color);
-    color: var(--dark-color);
-}
-
-.secret-message, .secret-hint {
-    font-size: 0.8rem;
-    color: #aaa;
-    margin-top: 10px;
-}
-
-/* Easter Egg */
-.easter-egg {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0,0,0,0.9);
-    display: none;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
-    flex-direction: column;
-    color: white;
-    text-align: center;
-    animation: fadeIn 0.5s ease-in-out;
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
-
-@keyframes floating {
-    0% { transform: translateY(0px) rotate(0deg); }
-    50% { transform: translateY(-20px) rotate(5deg); }
-    100% { transform: translateY(0px) rotate(0deg); }
-}
-
-.easter-egg img {
-    max-width: 300px;
-    margin-bottom: 20px;
-    animation: floating 3s ease-in-out infinite;
-}
-
-.easter-egg h2 {
-    font-size: 2.5rem;
-    margin-bottom: 20px;
-    color: var(--primary-color);
-}
-
-.easter-egg p {
-    max-width: 600px;
-    margin-bottom: 30px;
-    font-size: 1.2rem;
-    line-height: 1.6;
-}
-
-.close-easter-egg {
-    padding: 10px 20px;
-    background-color: var(--primary-color);
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: var(--transition);
-}
-
-.close-easter-egg:hover {
-    background-color: var(--accent-color);
-    transform: scale(1.1);
-}
-
-/* Modal tabeli rozmiarów */
-.size-guide-modal {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0,0,0,0.7);
-    z-index: 1000;
-    justify-content: center;
-    align-items: center;
-}
-
-.size-guide-content {
-    background-color: white;
-    padding: 30px;
-    border-radius: var(--border-radius);
-    max-width: 800px;
-    width: 90%;
-    max-height: 90vh;
-    overflow-y: auto;
-    position: relative;
-}
-
-.close-size-guide {
-    position: absolute;
-    top: 15px;
-    right: 15px;
-    font-size: 1.5rem;
-    background: none;
-    border: none;
-    cursor: pointer;
-    color: var(--dark-color);
-    transition: var(--transition);
-}
-
-.close-size-guide:hover {
-    color: var(--primary-color);
-    transform: rotate(90deg);
-}
-
-.size-guide-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-}
-
-.size-guide-table th, .size-guide-table td {
-    border: 1px solid #ddd;
-    padding: 10px;
-    text-align: center;
-}
-
-.size-guide-table th {
-    background-color: var(--secondary-color);
-    color: white;
-}
-
-.size-guide-table tr:nth-child(even) {
-    background-color: #f9f9f9;
-}
-
-/* Tryb ciemny */
-body.dark-theme {
-    background-color: #1a1a2e;
-    color: #e6e6e6;
-}
-
-body.dark-theme .sweater-preview,
-body.dark-theme .option-group,
-body.dark-theme .inspiration-links {
-    background-color: #16213e;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-}
-
-body.dark-theme header {
-    border-bottom-color: var(--secondary-color);
-}
-
-body.dark-theme .option-group h2 {
-    border-bottom-color: #2a2a4a;
-}
-
-body.dark-theme textarea, 
-body.dark-theme input[type="text"], 
-body.dark-theme input[type="email"], 
-body.dark-theme input[type="url"] {
-    background-color: #0f3460;
-    border-color: #2a2a4a;
-    color: #e6e6e6;
-}
-
-body.dark-theme .theme-toggle {
-    color: var(--secondary-color);
-}
-
-body.dark-theme footer {
-    border-top-color: var(--secondary-color);
-}
-
-/* Style responsywne */
-@media (max-width: 768px) {
-    .main-content {
-        flex-direction: column;
-    }
-    
-    .preview-container, .options-container {
-        max-width: 100%;
-    }
-    
-    header h1 {
-        font-size: 2rem;
-    }
-    
-    .subtitle {
-        font-size: 1rem;
-    }
-    
-    .color-row label {
-        min-width: 100px;
-    }
-    
-    .pattern-option, .decoration-option {
-        width: 50px;
-        height: 50px;
-    }
+    font-size: 0.9em;
+    color: #888;
 }
