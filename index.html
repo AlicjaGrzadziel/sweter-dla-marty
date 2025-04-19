@@ -2,7 +2,7 @@
 <html lang="pl">
 <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Zaprojektuj Swój Sweter Urodzinowy</title>
     <link rel="stylesheet" href="styles.css" />
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;700&display=swap" rel="stylesheet" />
@@ -41,12 +41,14 @@
 
             <div class="options-container">
                 <form id="sweaterForm">
+                    <!-- Rodzaje -->
                     <div class="option-group">
                         <h2>Rodzaj</h2>
                         <label><input type="radio" name="type" value="sweater" checked /> Sweter</label>
                         <label><input type="radio" name="type" value="cardigan" /> Kardigan</label>
                     </div>
 
+                    <!-- Rękawy -->
                     <div class="option-group">
                         <h2>Rękawy</h2>
                         <label><input type="radio" name="sleeves" value="long" checked /> Długie</label>
@@ -54,55 +56,34 @@
                         <label><input type="radio" name="sleeves" value="three-quarter" /> 3/4</label>
                     </div>
 
-                    <div class="option-group">
-                        <h2>Długość</h2>
-                        <label><input type="radio" name="length" value="regular" checked /> Regularna</label>
-                        <label><input type="radio" name="length" value="long" /> Długa</label>
-                        <label><input type="radio" name="length" value="crop" /> Krótka (crop)</label>
-                    </div>
-
-                    <div class="option-group">
-                        <h2>Wykończenie szyi</h2>
-                        <label><input type="radio" name="neckline" value="crew" checked /> Okrągłe</label>
-                        <label><input type="radio" name="neckline" value="v-neck" /> V-neck</label>
-                        <label><input type="radio" name="neckline" value="turtleneck" /> Golf</label>
-                    </div>
-
+                    <!-- Kolory -->
                     <div class="option-group">
                         <h2>Kolor główny</h2>
                         <div class="color-options">
-                            <label><input type="radio" name="mainColor" value="#2E4053" checked /><span style="background:#2E4053"></span> Navy</label>
-                            <label><input type="radio" name="mainColor" value="#7D3C98" /><span style="background:#7D3C98"></span> Lavender</label>
-                            <label><input type="radio" name="mainColor" value="#A04000" /><span style="background:#A04000"></span> Rust</label>
-                            <label><input type="radio" name="mainColor" value="#F1C40F" /><span style="background:#F1C40F"></span> Mustard</label>
+                            <label><input type="radio" name="mainColor" value="#FFFFFF" checked /><span style="background:#FFFFFF"></span> Biały</label>
+                            <label><input type="radio" name="mainColor" value="#000000" /><span style="background:#000000"></span> Czarny</label>
+                            <label><input type="radio" name="mainColor" value="#FF0000" /><span style="background:#FF0000"></span> Czerwony</label>
+                            <label><input type="radio" name="mainColor" value="#00FF00" /><span style="background:#00FF00"></span> Zielony</label>
+                            <label><input type="radio" name="mainColor" value="#0000FF" /><span style="background:#0000FF"></span> Niebieski</label>
+                            <label>
+                                <input type="radio" name="mainColor" value="custom" />
+                                <span>Inny</span>
+                            </label>
+                            <input type="text" id="customMainColor" name="customMainColor" placeholder="Wpisz kod HEX (#123456)" disabled />
                         </div>
                     </div>
 
-                    <div class="option-group">
-                        <h2>Kolor wykończenia</h2>
-                        <div class="color-options">
-                            <label><input type="radio" name="accentColor" value="same" checked /> Taki sam</label>
-                            <label><input type="radio" name="accentColor" value="#B03A2E" /> Czerwony</label>
-                            <label><input type="radio" name="accentColor" value="#ECF0F1" /> Kremowy</label>
-                        </div>
-                    </div>
-
-                    <div class="option-group">
-                        <h2>Dodatki</h2>
-                        <label><input type="checkbox" name="extras" value="pockets" /> Kieszenie</label>
-                        <label><input type="checkbox" name="extras" value="buttons" /> Guziki</label>
-                        <label><input type="checkbox" name="extras" value="pattern" /> Delikatny wzór</label>
-                    </div>
-
+                    <!-- Mini sweterek -->
                     <div class="option-group">
                         <h2>Mini sweterek dla Mańki</h2>
                         <label><input type="checkbox" id="miniSweaterCheckbox" /> Tak, poproszę!</label>
                     </div>
 
+                    <!-- Opis i dane -->
                     <div class="option-group">
                         <h2>Opis i inspiracja</h2>
                         <label for="specialRequests">Opisz swój wymarzony sweter:</label>
-                        <textarea id="specialRequests" name="specialRequests" rows="3" placeholder="Np. luźniejszy krój, określony splot, coś a la Sophie Scarf..."></textarea>
+                        <textarea id="specialRequests" name="specialRequests" rows="3" placeholder="Np. luźniejszy krój, określony splot..."></textarea>
                         <label for="link">Link do inspiracji (opcjonalnie):</label>
                         <input type="url" id="link" name="link" placeholder="https://..." />
                     </div>
